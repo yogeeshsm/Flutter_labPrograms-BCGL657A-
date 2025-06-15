@@ -61,4 +61,76 @@ class _MyAppState extends State<MyApp> {
       ),
     );
   }
+
+
+#Alternative program 
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const WeatherApp());
+}
+
+class WeatherApp extends StatelessWidget {
+  const WeatherApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Minimal Weather App',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: const WeatherHomePage(),
+    );
+  }
+}
+
+class WeatherHomePage extends StatelessWidget {
+  const WeatherHomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Weather Minimal'),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+    
+            const Text(
+              'Bengaluru',
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.deepPurple),
+            ),
+            const SizedBox(height: 20),
+           
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const <Widget>[
+                Icon(
+                  Icons.wb_sunny, 
+                  size: 55,
+                  color: Colors.amber,
+                ),
+                SizedBox(width: 15),
+                Text(
+                  '26°C',
+                  style: TextStyle(fontSize: 45, fontWeight: FontWeight.w600, color: Colors.orangeAccent),
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            
+            const Text(
+              'Sunny',
+              style: TextStyle(fontSize: 22, fontStyle: FontStyle.italic, color: Colors.grey),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
