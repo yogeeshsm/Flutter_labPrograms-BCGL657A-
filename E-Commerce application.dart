@@ -37,3 +37,34 @@ class EcommerceApp extends StatelessWidget {
     );
   }
 }
+
+#Alternative Program 
+import 'package:flutter/material.dart';
+
+void main() => runApp(MaterialApp(home: Scaffold(
+  appBar: AppBar(title: Text('E-commerce')),
+  body: Center(child: ProductCard()),
+)));
+
+class ProductCard extends StatefulWidget {
+  @override
+  State<ProductCard> createState() => _ProductCardState();
+}
+
+class _ProductCardState extends State<ProductCard> {
+  bool bought = false;
+
+  @override
+  Widget build(BuildContext c) => Column(
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      Icon(Icons.phone_android, size: 60),
+      Text('Mi 11i 5G', style: TextStyle(fontWeight: FontWeight.bold)),
+      Text('₹27,999', style: TextStyle(color: Colors.green)),
+      ElevatedButton(
+        onPressed: bought ? null : () => setState(() => bought = true),
+        child: Text(bought ? 'Purchased' : 'Buy Now'),
+      ),
+    ],
+  );
+}
